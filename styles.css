@@ -857,23 +857,3 @@ html {
 .join-team-badge .jc-monogram { font-size: 34px; }
 .footer-logo .jc-monogram { font-size: 28px; }
 
-.jingle-play {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  border: 1px solid rgba(23,19,15,.12);
-  background: rgba(247,241,233,.96);
-  color: #17130f;
-  border-radius: 999px;
-  padding: 11px 15px;
-  font: 600 13px/1 "DM Sans", sans-serif;
-  box-shadow: 0 12px 30px rgba(23,19,15,.16);
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-}
-.jingle-play span {
-  margin-right: 6px;
-  color: #9d7b58;
-}
-.jingle-play[hidden] { display: none !important; }
