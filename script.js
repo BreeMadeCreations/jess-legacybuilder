@@ -17,12 +17,22 @@ if (introSplash && introVideo) {
   introVideo.addEventListener('ended', finishIntro, { once: true });
   introVideo.addEventListener('error', finishIntro, { once: true });
 
-  const playPromise = introVideo.play();
-  if (playPromise && typeof playPromise.catch === 'function') {
-    playPromise.catch(() => finishIntro());
+  const startIntro = () => {
+    introVideo.currentTime = 0;
+    const playPromise = introVideo.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(finishIntro);
+    }
+  };
+
+  if (introVideo.readyState >= 2) {
+    startIntro();
+  } else {
+    introVideo.addEventListener('canplay', startIntro, { once: true });
   }
 
-  window.setTimeout(finishIntro, 5200);
+  // Safety fallback only; the normal exit is the video's ended event.
+  window.setTimeout(finishIntro, 7000);
 }
 
 const qs = (s, root = document) => root.querySelector(s);
