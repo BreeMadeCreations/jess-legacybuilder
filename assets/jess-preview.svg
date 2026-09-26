@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8f1e8"/>
+      <stop offset="0.55" stop-color="#eadbc9"/>
+      <stop offset="1" stop-color="#b99b79"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8cfac"/>
+      <stop offset="1" stop-color="#9e7c58"/>
+    </linearGradient>
+    <clipPath id="photoClip">
+      <path d="M0 0H420V630H0Z"/>
+    </clipPath>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#35271d" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1100" cy="70" r="210" fill="#fff" opacity=".12"/>
+  <circle cx="1080" cy="590" r="250" fill="#fff" opacity=".09"/>
+
+  <g clip-path="url(#photoClip)">
+    <image href="jessica-preview-photo.png" x="-75" y="0" width="570" height="630" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="0" y="0" width="420" height="630" fill="none" stroke="#ead7bd" stroke-width="8"/>
+    <path d="M405 0 C470 150 455 485 405 630" fill="none" stroke="#f2dfc4" stroke-width="5" opacity=".95"/>
+  </g>
+
+  <g transform="translate(465 42)">
+    <circle cx="68" cy="64" r="54" fill="#f7efe5" stroke="url(#gold)" stroke-width="3"/>
+    <text x="68" y="84" text-anchor="middle" fill="#806449" font-family="Georgia, 'Times New Roman', serif" font-size="58" letter-spacing="-8">JC</text>
+
+    <text x="145" y="74" fill="#211913" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="600">Jessica Cabello</text>
+    <text x="147" y="116" fill="#8e6a45" font-family="Georgia, 'Times New Roman', serif" font-size="31" font-style="italic">Stress Less, Call Jess ♡</text>
+    <text x="147" y="151" fill="#352a22" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="4">LIFE INSURANCE &amp; FINANCIAL SERVICES</text>
+
+    <line x1="0" y1="176" x2="700" y2="176" stroke="#b28e67" stroke-width="1" opacity=".55"/>
+
+    <g font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#201914">
+      <g transform="translate(0 205)">
+        <rect width="325" height="58" rx="29" fill="#fffaf4" opacity=".94"/>
+        <circle cx="32" cy="29" r="21" fill="#9b7a59"/>
+        <text x="32" y="36" text-anchor="middle" font-size="24" fill="#fff">♡</text>
+        <text x="67" y="36">Life Insurance</text>
+      </g>
+      <g transform="translate(342 205)">
+        <rect width="325" height="58" rx="29" fill="#fffaf4" opacity=".94"/>
+        <circle cx="32" cy="29" r="21" fill="#9b7a59"/>
+        <text x="32" y="36" text-anchor="middle" font-size="21" fill="#fff">↗</text>
+        <text x="67" y="36">Investments &amp; Securities</text>
+      </g>
+
+      <g transform="translate(0 278)">
+        <rect width="325" height="58" rx="29" fill="#fffaf4" opacity=".94"/>
+        <circle cx="32" cy="29" r="21" fill="#9b7a59"/>
+        <text x="32" y="36" text-anchor="middle" font-size="21" fill="#fff">⌂</text>
+        <text x="67" y="36">Mortgages</text>
+      </g>
+      <g transform="translate(342 278)">
+        <rect width="325" height="58" rx="29" fill="#fffaf4" opacity=".94"/>
+        <circle cx="32" cy="29" r="21" fill="#9b7a59"/>
+        <text x="32" y="36" text-anchor="middle" font-size="17" fill="#fff">AUTO</text>
+        <text x="67" y="36">Auto &amp; Home Insurance</text>
+      </g>
+
+      <g transform="translate(0 351)">
+        <rect width="325" height="58" rx="29" fill="#fffaf4" opacity=".94"/>
+        <circle cx="32" cy="29" r="21" fill="#9b7a59"/>
+        <text x="32" y="35" text-anchor="middle" font-size="18" fill="#fff">$</text>
+        <text x="67" y="36">Retirement Plans</text>
+      </g>
+      <g transform="translate(342 351)">
+        <rect width="325" height="58" rx="29" fill="#fffaf4" opacity=".94"/>
+        <circle cx="32" cy="29" r="21" fill="#9b7a59"/>
+        <text x="32" y="35" text-anchor="middle" font-size="19" fill="#fff">✦</text>
+        <text x="67" y="36">Wills &amp; Trusts</text>
+      </g>
+
+      <g transform="translate(110 424)">
+        <rect width="450" height="58" rx="29" fill="#fffaf4" opacity=".94"/>
+        <circle cx="32" cy="29" r="21" fill="#9b7a59"/>
+        <text x="32" y="35" text-anchor="middle" font-size="19" fill="#fff">▣</text>
+        <text x="67" y="36">Commercial Insurance</text>
+      </g>
+    </g>
+
+    <g transform="translate(15 510)" filter="url(#shadow)">
+      <rect width="640" height="72" rx="36" fill="#211913"/>
+      <text x="55" y="47" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="22">◎</text>
+      <text x="100" y="47" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="27" letter-spacing="4">stresslesscalljess.com</text>
+      <text x="600" y="47" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="34">›</text>
+    </g>
+  </g>
+</svg>
