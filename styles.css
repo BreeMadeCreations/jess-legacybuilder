@@ -806,44 +806,22 @@ html {
 }
 
 
-/* One-time-on-load brand intro */
-html.intro-playing,
-html.intro-playing body {
-  overflow: hidden;
+
+
+
+/* JC logo visibility fix */
+.brand-mark,
+.join-team-badge {
+  background: #17130f;
 }
-.intro-splash {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  display: grid;
-  place-items: center;
-  background: #f7f1e9;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .55s ease, visibility .55s ease;
+.brand-mark img,
+.join-team-badge img,
+.footer-logo {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
-.intro-splash.is-finished {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.intro-video {
-  display: block;
-  width: min(100vw, 760px);
-  height: 100svh;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  background: #f7f1e9;
-}
-@media (max-width: 760px) {
-  .intro-video {
-    width: 100vw;
-    height: 100svh;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .intro-splash {
-    display: none;
-  }
+.brand-mark img {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
 }
