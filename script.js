@@ -1,43 +1,53 @@
 const jingleAudio = document.querySelector('#jingleAudio');
-const jinglePlay = document.querySelector('#jinglePlay');
 
 if (jingleAudio) {
-  let played = false;
+  let started = false;
 
-  const hideJingleButton = () => {
-    if (jinglePlay) jinglePlay.hidden = true;
-  };
-
-  const showJingleButton = () => {
-    if (jinglePlay && !played) jinglePlay.hidden = false;
-  };
-
-  const startJingle = () => {
-    if (played) return;
-    jingleAudio.currentTime = 0;
+  const tryAutoplay = () => {
+    if (started || !jingleAudio.paused) return;
     jingleAudio.volume = 1;
-    const p = jingleAudio.play();
+    jingleAudio.muted = false;
 
+    const p = jingleAudio.play();
     if (p && typeof p.then === 'function') {
       p.then(() => {
-        played = true;
-        hideJingleButton();
+        started = true;
       }).catch(() => {
-        showJingleButton();
+        // Some browsers block audible autoplay until the visitor interacts.
       });
     }
   };
 
-  // Try once when the normal page is ready.
-  window.addEventListener('load', startJingle, { once: true });
+  // Try as early and as often as the browser reasonably allows.
+  tryAutoplay();
 
-  // Chrome/Safari may block sound-on autoplay; this is the reliable fallback.
-  if (jinglePlay) {
-    jinglePlay.addEventListener('click', startJingle);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryAutoplay, { once: true });
   }
 
-  jingleAudio.addEventListener('ended', hideJingleButton);
+  window.addEventListener('load', tryAutoplay, { once: true });
+  window.addEventListener('pageshow', tryAutoplay);
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryAutoplay();
+  });
+
+  // If autoplay was blocked, the very first normal interaction starts it
+  // without showing a separate button or interrupting the page.
+  const interactionStart = () => {
+    tryAutoplay();
+    if (!jingleAudio.paused) {
+      window.removeEventListener('pointerdown', interactionStart);
+      window.removeEventListener('touchstart', interactionStart);
+      window.removeEventListener('keydown', interactionStart);
+    }
+  };
+
+  window.addEventListener('pointerdown', interactionStart, { passive: true });
+  window.addEventListener('touchstart', interactionStart, { passive: true });
+  window.addEventListener('keydown', interactionStart);
 }
+
 const qs = (s, root = document) => root.querySelector(s);
 const qsa = (s, root = document) => [...root.querySelectorAll(s)];
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
