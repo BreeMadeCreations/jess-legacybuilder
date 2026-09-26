@@ -166,3 +166,40 @@ if (!reduced) {
   window.addEventListener('resize', requestMotion, { passive: true });
   requestMotion();
 }
+
+
+const jingleButton = qs('#jingleButton');
+const jingleAudio = qs('#jingleAudio');
+
+if (jingleButton && jingleAudio) {
+  const label = jingleButton.querySelector('.jingle-label');
+
+  const setPlaying = (playing) => {
+    jingleButton.setAttribute('aria-pressed', String(playing));
+    jingleButton.setAttribute('aria-label', playing
+      ? 'Stop the Stress Less, Call Jess jingle'
+      : 'Play the Stress Less, Call Jess jingle');
+    if (label) label.textContent = playing ? 'Stop Jingle' : 'Play Jingle';
+  };
+
+  jingleButton.addEventListener('click', () => {
+    if (!jingleAudio.paused && !jingleAudio.ended) {
+      jingleAudio.pause();
+      jingleAudio.currentTime = 0;
+      setPlaying(false);
+      return;
+    }
+
+    jingleAudio.currentTime = 0;
+    const p = jingleAudio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(() => setPlaying(false));
+    }
+  });
+
+  jingleAudio.addEventListener('play', () => setPlaying(true));
+  jingleAudio.addEventListener('ended', () => setPlaying(false));
+  jingleAudio.addEventListener('pause', () => {
+    if (!jingleAudio.ended) setPlaying(false);
+  });
+}
