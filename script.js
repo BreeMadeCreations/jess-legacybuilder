@@ -138,18 +138,14 @@ if (!reduced) {
     if (hero && art && window.innerWidth > 760) {
       const r = hero.getBoundingClientRect();
       const p = Math.min(1, Math.max(0, -r.top / Math.max(1, hero.offsetHeight)));
-      art.style.transform = `translate3d(0, ${p * 26}px, 0) rotate(${p * .55}deg)`;
+      art.style.transform = `translate3d(0, ${p * 26}px, 0)`;
     } else if (art) {
       art.style.transform = '';
     }
 
-    qsa('.moment-card').forEach((card, i) => {
-      if (window.innerWidth < 761) return;
-      const r = card.getBoundingClientRect();
-      const c = r.top + r.height / 2;
-      const n = (c - window.innerHeight / 2) / window.innerHeight;
-      card.style.translate = `0 ${Math.max(-14, Math.min(14, n * -16))}px`;
-      card.style.rotate = `${Math.max(-1.2, Math.min(1.2, n * (i % 2 ? 1 : -1)))}deg`;
+    qsa('.moment-card').forEach(card => {
+      card.style.translate = '0 0';
+      card.style.rotate = '0deg';
     });
 
     const special = qs('.special-card');
