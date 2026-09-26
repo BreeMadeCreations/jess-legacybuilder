@@ -1,41 +1,43 @@
 const jingleAudio = document.querySelector('#jingleAudio');
+const jinglePlay = document.querySelector('#jinglePlay');
 
 if (jingleAudio) {
-  let jingleStarted = false;
+  let played = false;
 
-  const playJingle = () => {
-    if (jingleStarted) return;
+  const hideJingleButton = () => {
+    if (jinglePlay) jinglePlay.hidden = true;
+  };
+
+  const showJingleButton = () => {
+    if (jinglePlay && !played) jinglePlay.hidden = false;
+  };
+
+  const startJingle = () => {
+    if (played) return;
     jingleAudio.currentTime = 0;
     jingleAudio.volume = 1;
+    const p = jingleAudio.play();
 
-    const attempt = jingleAudio.play();
-    if (attempt && typeof attempt.then === 'function') {
-      attempt.then(() => {
-        jingleStarted = true;
-        removeFallbackListeners();
+    if (p && typeof p.then === 'function') {
+      p.then(() => {
+        played = true;
+        hideJingleButton();
       }).catch(() => {
-        // Browsers can block sound-on autoplay until the first user interaction.
+        showJingleButton();
       });
     }
   };
 
-  const removeFallbackListeners = () => {
-    window.removeEventListener('pointerdown', playJingle);
-    window.removeEventListener('keydown', playJingle);
-    window.removeEventListener('touchstart', playJingle);
-  };
+  // Try once when the normal page is ready.
+  window.addEventListener('load', startJingle, { once: true });
 
-  // Try immediately when the page loads.
-  playJingle();
+  // Chrome/Safari may block sound-on autoplay; this is the reliable fallback.
+  if (jinglePlay) {
+    jinglePlay.addEventListener('click', startJingle);
+  }
 
-  // If the browser blocks autoplay with sound, play it on the first interaction.
-  window.addEventListener('pointerdown', playJingle, { passive: true });
-  window.addEventListener('touchstart', playJingle, { passive: true });
-  window.addEventListener('keydown', playJingle);
-
-  jingleAudio.addEventListener('ended', removeFallbackListeners, { once: true });
+  jingleAudio.addEventListener('ended', hideJingleButton);
 }
-
 const qs = (s, root = document) => root.querySelector(s);
 const qsa = (s, root = document) => [...root.querySelectorAll(s)];
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
