@@ -28,8 +28,8 @@
   </g>
 
   <g transform="translate(465 42)">
-    <circle cx="68" cy="64" r="54" fill="#f7efe5" stroke="url(#gold)" stroke-width="3"/>
-    <text x="68" y="84" text-anchor="middle" fill="#806449" font-family="Georgia, 'Times New Roman', serif" font-size="58" letter-spacing="-8">JC</text>
+    <circle cx="68" cy="64" r="58" fill="#f7efe5" stroke="url(#gold)" stroke-width="3"/>
+    <image href="jc-logo.png" x="14" y="10" width="108" height="108" preserveAspectRatio="xMidYMid slice" clip-path="circle(54px at 54px 54px)"/>
 
     <text x="145" y="74" fill="#211913" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="600">Jessica Cabello</text>
     <text x="147" y="116" fill="#8e6a45" font-family="Georgia, 'Times New Roman', serif" font-size="31" font-style="italic">Stress Less, Call Jess ♡</text>
