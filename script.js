@@ -1,3 +1,30 @@
+const introSplash = document.querySelector('#introSplash');
+const introVideo = document.querySelector('#introVideo');
+
+if (introSplash && introVideo) {
+  document.documentElement.classList.add('intro-playing');
+
+  let introClosed = false;
+  const finishIntro = () => {
+    if (introClosed) return;
+    introClosed = true;
+    introVideo.pause();
+    introSplash.classList.add('is-finished');
+    document.documentElement.classList.remove('intro-playing');
+    window.setTimeout(() => introSplash.remove(), 650);
+  };
+
+  introVideo.addEventListener('ended', finishIntro, { once: true });
+  introVideo.addEventListener('error', finishIntro, { once: true });
+
+  const playPromise = introVideo.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => finishIntro());
+  }
+
+  window.setTimeout(finishIntro, 5200);
+}
+
 const qs = (s, root = document) => root.querySelector(s);
 const qsa = (s, root = document) => [...root.querySelectorAll(s)];
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
