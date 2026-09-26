@@ -804,3 +804,48 @@ html {
   .footer-brand { align-items: flex-start; }
   .footer-logo { width: 50px; height: 50px; flex-basis: 50px; }
 }
+
+
+/* One-time-on-load brand intro */
+html.intro-playing,
+html.intro-playing body {
+  overflow: hidden;
+}
+.intro-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(247,241,233,.26), transparent 46%),
+    #a88b6b;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .55s ease, visibility .55s ease;
+}
+.intro-splash.is-finished {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.intro-video {
+  display: block;
+  width: min(100vw, 760px);
+  height: min(100svh, 900px);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+@media (max-width: 760px) {
+  .intro-video {
+    width: 100vw;
+    height: 100svh;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-splash {
+    display: none;
+  }
+}
