@@ -817,9 +817,7 @@ html.intro-playing body {
   z-index: 99999;
   display: grid;
   place-items: center;
-  background:
-    radial-gradient(circle at 50% 42%, rgba(247,241,233,.26), transparent 46%),
-    #a88b6b;
+  background: #f7f1e9;
   opacity: 1;
   visibility: visible;
   transition: opacity .55s ease, visibility .55s ease;
@@ -832,11 +830,11 @@ html.intro-playing body {
 .intro-video {
   display: block;
   width: min(100vw, 760px);
-  height: min(100svh, 900px);
+  height: 100svh;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  background: transparent;
+  background: #f7f1e9;
 }
 @media (max-width: 760px) {
   .intro-video {
