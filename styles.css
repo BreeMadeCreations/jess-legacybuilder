@@ -131,7 +131,7 @@ body::before {
   border-radius: 999px;
   background: rgba(255,253,249,.52);
   box-shadow: 0 12px 30px rgba(44,32,21,.07);
-  transform: rotate(-1.2deg);
+  transform: none;
 }
 .brand-slogan span { font-size: 13px; font-weight: 600; color: var(--muted); }
 .brand-slogan strong {
@@ -193,9 +193,9 @@ body::before {
 .floating-card small { font-size: 9px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
 .floating-card strong { font-size: 13px; margin-top: 3px; }
 .mini-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--sand-light); }
-.signature { position: absolute; z-index: 5; bottom: 38px; left: 50%; transform: translateX(-50%) rotate(-4deg); background: var(--aqua); padding: 9px 16px; border-radius: 999px; font-size: 11px; font-weight: 700; box-shadow: 0 12px 24px rgba(53,113,112,.18); white-space: nowrap; }
+.signature { position: absolute; z-index: 5; bottom: 38px; left: 50%; transform: translateX(-50%); background: var(--aqua); padding: 9px 16px; border-radius: 999px; font-size: 11px; font-weight: 700; box-shadow: 0 12px 24px rgba(53,113,112,.18); white-space: nowrap; }
 @keyframes spin { to { transform: rotate(360deg); } }
-@keyframes bob { from { transform: translateY(-7px) rotate(-1deg); } to { transform: translateY(8px) rotate(1deg); } }
+@keyframes bob { from { transform: translateY(-7px); } to { transform: translateY(8px); } }
 
 .ticker { overflow: hidden; background: var(--sand); color: white; border-top: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(23,19,15,.08); }
 .ticker-track { width: max-content; display: flex; align-items: center; gap: 24px; padding: 17px 0; animation: marquee 30s linear infinite; }
@@ -209,7 +209,7 @@ body::before {
 .about h2 { font-size: clamp(48px, 6vw, 92px); margin: 0; max-width: 900px; }
 .about-copy { padding-top: 8px; max-width: 590px; }
 .about-copy p { font-size: clamp(16px, 1.4vw, 19px); line-height: 1.75; color: var(--muted); }
-.handwritten { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 24px; color: var(--sand-dark); margin-top: 30px; transform: rotate(-2deg); }
+.handwritten { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 24px; color: var(--sand-dark); margin-top: 30px; transform: none; }
 
 .life-moments { position: relative; background: var(--ink); color: white; padding: clamp(100px, 11vw, 170px) clamp(24px, 7vw, 108px); overflow: hidden; }
 .life-moments::before { content: "LEGACY"; position: absolute; left: -3vw; top: 7%; font-family: "Playfair Display", Georgia, serif; font-size: 24vw; line-height: .8; color: rgba(255,255,255,.025); pointer-events: none; }
@@ -219,7 +219,7 @@ body::before {
 .moments-line span { position: absolute; left: 0; top: 0; width: 100%; height: 0; background: var(--aqua); box-shadow: 0 0 16px rgba(115,201,200,.45); }
 .moment-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; position: relative; z-index: 1; }
 .moment-card { min-height: 330px; padding: 28px; border: 1px solid rgba(255,255,255,.13); border-radius: 30px; background: rgba(255,255,255,.04); backdrop-filter: blur(8px); position: relative; overflow: hidden; }
-.moment-card:nth-child(even) { transform: translateY(80px); }
+.moment-card:nth-child(even) { transform: none; }
 .moment-card::after { content: ""; position: absolute; width: 160px; height: 160px; background: rgba(168,139,107,.17); border-radius: 50%; right: -60px; bottom: -60px; filter: blur(6px); }
 .moment-number { font-size: 11px; letter-spacing: .14em; opacity: .52; }
 .moment-icon { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--sand); color: white; font-size: 25px; margin: 46px 0 26px; }
@@ -262,7 +262,7 @@ body::before {
 .contact-copy { position: sticky; top: 130px; }
 .contact-copy h2 { font-size: clamp(48px, 6vw, 88px); margin: 20px 0 24px; }
 .contact-copy > p:not(.eyebrow) { color: rgba(255,255,255,.64); font-size: 17px; line-height: 1.7; max-width: 560px; }
-.social-chip { display: inline-flex; margin-top: 26px; background: var(--aqua); color: var(--ink); border-radius: 999px; padding: 10px 14px; font-size: 12px; font-weight: 700; transform: rotate(-2deg); }
+.social-chip { display: inline-flex; margin-top: 26px; background: var(--aqua); color: var(--ink); border-radius: 999px; padding: 10px 14px; font-size: 12px; font-weight: 700; transform: none; }
 .contact-form { background: var(--sand); border-radius: 30px; padding: clamp(28px, 5vw, 58px); box-shadow: 0 28px 80px rgba(0,0,0,.2); }
 .contact-form label { display: grid; gap: 8px; margin-bottom: 20px; }
 .contact-form label span { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
