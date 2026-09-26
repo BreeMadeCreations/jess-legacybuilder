@@ -717,3 +717,48 @@ html {
   .join-team-section { padding-left: 20px; padding-right: 20px; }
   .join-team-action { border-radius: 26px; padding: 30px 24px; }
 }
+
+
+/* Broker licenses */
+.broker-licenses {
+  margin: 28px 0 0;
+  padding: 20px 22px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 22px;
+  background: rgba(255,255,255,.04);
+}
+.broker-licenses-label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  font-weight: 700;
+}
+.broker-licenses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.broker-licenses-grid div {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.broker-licenses-grid small {
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.48);
+}
+.broker-licenses-grid strong {
+  font-size: 13px;
+  color: rgba(255,255,255,.86);
+}
+@media (max-width: 760px) {
+  .broker-licenses-grid { grid-template-columns: 1fr; }
+}
