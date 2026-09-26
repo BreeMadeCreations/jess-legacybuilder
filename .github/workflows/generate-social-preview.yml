@@ -67,5 +67,6 @@ jobs:
             echo "Preview already up to date."
           else
             git commit -m "Fix shared link preview photo"
+            git pull --rebase origin main
             git push
           fi
