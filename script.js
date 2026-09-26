@@ -1,38 +1,39 @@
-const introSplash = document.querySelector('#introSplash');
-const introVideo = document.querySelector('#introVideo');
+const jingleAudio = document.querySelector('#jingleAudio');
 
-if (introSplash && introVideo) {
-  document.documentElement.classList.add('intro-playing');
+if (jingleAudio) {
+  let jingleStarted = false;
 
-  let introClosed = false;
-  const finishIntro = () => {
-    if (introClosed) return;
-    introClosed = true;
-    introVideo.pause();
-    introSplash.classList.add('is-finished');
-    document.documentElement.classList.remove('intro-playing');
-    window.setTimeout(() => introSplash.remove(), 650);
-  };
+  const playJingle = () => {
+    if (jingleStarted) return;
+    jingleAudio.currentTime = 0;
+    jingleAudio.volume = 1;
 
-  introVideo.addEventListener('ended', finishIntro, { once: true });
-  introVideo.addEventListener('error', finishIntro, { once: true });
-
-  const startIntro = () => {
-    introVideo.currentTime = 0;
-    const playPromise = introVideo.play();
-    if (playPromise && typeof playPromise.catch === 'function') {
-      playPromise.catch(finishIntro);
+    const attempt = jingleAudio.play();
+    if (attempt && typeof attempt.then === 'function') {
+      attempt.then(() => {
+        jingleStarted = true;
+        removeFallbackListeners();
+      }).catch(() => {
+        // Browsers can block sound-on autoplay until the first user interaction.
+      });
     }
   };
 
-  if (introVideo.readyState >= 2) {
-    startIntro();
-  } else {
-    introVideo.addEventListener('canplay', startIntro, { once: true });
-  }
+  const removeFallbackListeners = () => {
+    window.removeEventListener('pointerdown', playJingle);
+    window.removeEventListener('keydown', playJingle);
+    window.removeEventListener('touchstart', playJingle);
+  };
 
-  // Safety fallback only; the normal exit is the video's ended event.
-  window.setTimeout(finishIntro, 7000);
+  // Try immediately when the page loads.
+  playJingle();
+
+  // If the browser blocks autoplay with sound, play it on the first interaction.
+  window.addEventListener('pointerdown', playJingle, { passive: true });
+  window.addEventListener('touchstart', playJingle, { passive: true });
+  window.addEventListener('keydown', playJingle);
+
+  jingleAudio.addEventListener('ended', removeFallbackListeners, { once: true });
 }
 
 const qs = (s, root = document) => root.querySelector(s);
