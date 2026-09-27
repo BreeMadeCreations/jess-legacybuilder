@@ -66,6 +66,8 @@
         <h1>Protect the people<br><em>you love most.</em></h1>
         <p class="hero-lede">Jessica helps families explore life insurance coverage with a clear, personal conversation focused on protecting the people and future that matter most.</p>
         <div class="brand-slogan" aria-label="Jessica’s slogan"><span>Stress less,</span><strong>call Jess.</strong><i>♡</i></div>
+        <audio id="welcomeAudio" src="welcome-audio.mp3" autoplay preload="auto"></audio>
+        <button id="welcomeAudioToggle" type="button" aria-controls="welcomeAudio" aria-label="Play welcome audio" style="display:block;margin:16px 0;padding:10px 18px;min-height:44px;border:1px solid currentColor;border-radius:999px;background:var(--cream);color:var(--ink);cursor:pointer">Play audio</button>
         <div class="hero-actions">
           <a href="#contact" class="button button-dark">Free Life Insurance Consultation <span>↓</span></a>
         </div>
@@ -351,6 +353,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite">Opening your text-message app with a message ready for Jessica…</div>
   <script src="script.js"></script>
+  <script src="welcome-audio.js"></script>
   <!-- deploy refresh: 2026-09-26 -->
 </body>
 </html>
